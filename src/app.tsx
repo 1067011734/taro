@@ -6,6 +6,8 @@ import counterStore from './store/counter'
 
 import './app.less'
 
+import 'taro-ui/dist/style/index.scss'
+
 // 如果需要在 h5 环境中开启 React Devtools
 // 取消以下注释：
 // if (process.env.NODE_ENV !== 'production' && process.env.TARO_ENV === 'h5')  {
@@ -27,7 +29,7 @@ class App extends Component {
    */
   config: Config = {
     pages: [
-      'pages/container/index',
+      'pages/welcome/index',
       'pages/love/index',
       'pages/call/index',
       'pages/index/index'
@@ -45,7 +47,7 @@ class App extends Component {
       borderStyle: 'black',
       list: [
         {
-          pagePath: "pages/container/index",
+          pagePath: "pages/welcome/index",
           iconPath: "./images/tabbar/welcome.png",
           selectedIconPath: "./images/tabbar/welcome-active.png",
           text: "介绍"
