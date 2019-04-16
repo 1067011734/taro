@@ -27,6 +27,9 @@ class App extends Component {
    */
   config: Config = {
     pages: [
+      'pages/container/index',
+      'pages/love/index',
+      'pages/call/index',
       'pages/index/index'
     ],
     window: {
@@ -34,20 +37,46 @@ class App extends Component {
       navigationBarBackgroundColor: '#fff',
       navigationBarTitleText: 'WeChat',
       navigationBarTextStyle: 'black'
+    },
+    tabBar: {
+      color: "#374655",
+      selectedColor: "#b4282d",
+      backgroundColor: "#fff",
+      borderStyle: 'black',
+      list: [
+        {
+          pagePath: "pages/container/index",
+          iconPath: "./images/tabbar/welcome.png",
+          selectedIconPath: "./images/tabbar/welcome-active.png",
+          text: "介绍"
+        },
+        {
+          pagePath: "pages/love/index",
+          iconPath: "./images/tabbar/love.png",
+          selectedIconPath: "./images/tabbar/love-active.png",
+          text: "心动了"
+        },
+        {
+          pagePath: "pages/call/index",
+          iconPath: "./images/tabbar/call.png",
+          selectedIconPath: "./images/tabbar/call-active.png",
+          text: "联系我们"
+        },
+      ]
     }
   }
 
-  componentDidMount () {}
+  componentDidMount() { }
 
-  componentDidShow () {}
+  componentDidShow() { }
 
-  componentDidHide () {}
+  componentDidHide() { }
 
-  componentDidCatchError () {}
+  componentDidCatchError() { }
 
   // 在 App 类中的 render() 函数没有实际作用
   // 请勿修改此函数
-  render () {
+  render() {
     return (
       <Provider store={store}>
         <Index />

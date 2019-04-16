@@ -1,9 +1,6 @@
 import { ComponentType } from 'react'
 import Taro, { Component, Config } from '@tarojs/taro'
 import { View, Button, Text } from '@tarojs/components'
-import { observer, inject } from '@tarojs/mobx'
-
-import './index.less'
 
 type PageStateProps = {
   counterStore: {
@@ -18,8 +15,6 @@ interface Index {
   props: PageStateProps;
 }
 
-@inject('counterStore')
-@observer
 class Index extends Component {
 
   /**
@@ -30,7 +25,7 @@ class Index extends Component {
    * 提示和声明 navigationBarTextStyle: 'black' | 'white' 类型冲突, 需要显示声明类型
    */
   config: Config = {
-    navigationBarTitleText: '首页'
+    navigationBarTitleText: '我们是谁'
   }
 
   componentWillMount () { }
@@ -47,30 +42,12 @@ class Index extends Component {
 
   componentDidHide () { }
 
-  increment = () => {
-    const { counterStore } = this.props
-    counterStore.increment()
-  }
-
-  decrement = () => {
-    const { counterStore } = this.props
-    counterStore.decrement()
-  }
-
-  incrementAsync = () => {
-    const { counterStore } = this.props
-    counterStore.incrementAsync()
-  }
-
   render () {
-    const { counterStore: { counter } } = this.props
     return (
       <View className='index'>
-        <Button onClick={this.increment}>+</Button>
-        <Button onClick={this.decrement}>-</Button>
-        <Button onClick={this.incrementAsync}>4444</Button>
-        <Text>{counter}</Text>
+        88888888888888
       </View>
+      // <div>2222222</div>
     )
   }
 }
