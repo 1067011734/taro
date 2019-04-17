@@ -6,7 +6,7 @@ const prefixCls = 'wowo-title';
 
 export interface titleProps {
   // 标题
-  children: Node;
+  children: any;
 }
 
 export default class DocsHeader extends Component<titleProps, {}> {
