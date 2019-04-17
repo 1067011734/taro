@@ -1,5 +1,6 @@
 import { ComponentType } from 'react'
 import Taro, { Component, Config } from '@tarojs/taro'
+import Title from '@components/Title'
 import { View, Button, Text } from '@tarojs/components'
 
 type PageStateProps = {
@@ -28,28 +29,27 @@ class Index extends Component {
     navigationBarTitleText: '我们是谁'
   }
 
-  componentWillMount () { }
+  componentWillMount() { }
 
-  componentWillReact () {
+  componentWillReact() {
     console.log('componentWillReact')
   }
 
-  componentDidMount () { }
+  componentDidMount() { }
 
-  componentWillUnmount () { }
+  componentWillUnmount() { }
 
-  componentDidShow () { }
+  componentDidShow() { }
 
-  componentDidHide () { }
+  componentDidHide() { }
 
-  render () {
+  render() {
     return (
-      <View className='index'>
-        88888888888888
+      <View className='panel'>
+        <Title title="如何使用？">如何使用？</Title>
       </View>
-      // <div>2222222</div>
     )
   }
 }
 
-export default Index  as ComponentType
+export default Index as ComponentType
