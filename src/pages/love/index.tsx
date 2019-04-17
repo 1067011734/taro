@@ -3,7 +3,7 @@ import Taro, { Component, Config } from '@tarojs/taro'
 import Title from '@components/Title'
 import { View } from '@tarojs/components'
 import { AtTimeline, AtGrid } from 'taro-ui'
-import Footer from './_components/Footer'
+import Header from './_components/Header'
 
 type PageStateProps = {
   counterStore: {
@@ -79,6 +79,7 @@ class Index extends Component {
     const { data } = this.state
     return (
       <View className='page'>
+        <Header />
         <View className="margin--bottom-base">
           <Title>如何使用？</Title>
           <AtTimeline
@@ -98,7 +99,6 @@ class Index extends Component {
           mode='rect'
           data={data}
         />
-        <Footer />
       </View>
     )
   }
