@@ -81,7 +81,7 @@ class Index extends Component {
       <View className='page'>
         <Header />
         <View className="margin--bottom-base">
-          <Title>如何使用？</Title>
+          <Title animation>如何使用？</Title>
           <AtTimeline
             items={[
               { title: '企业开通钉钉' },
@@ -94,7 +94,7 @@ class Index extends Component {
           >
           </AtTimeline>
         </View>
-        <Title >产品介绍</Title>
+        <Title animation>产品介绍</Title>
         <AtGrid
           mode='rect'
           data={data}
