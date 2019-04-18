@@ -1,12 +1,12 @@
 import { ComponentType } from 'react'
 import Taro, { Component, Config } from '@tarojs/taro'
 import { View } from '@tarojs/components'
-import { AtAvatar, AtButton } from 'taro-ui'
+import { AtAvatar, AtButton, AtMessage, AtDivider } from 'taro-ui'
 import Card from '@components/Card'
+import TabsBar from '@components/TabsBar'
 import './index.less'
 
 const prefixCls = 'page-call';
-const CardItem = Card.Item;
 
 class Index extends Component {
   state = {
@@ -17,7 +17,7 @@ class Index extends Component {
   }
 
   // 电话
-  phoneNumber = '10086';
+  phoneNumber = '02155381603';
 
   /**
    * 指定config的类型声明为: Taro.Config
@@ -44,6 +44,11 @@ class Index extends Component {
     this.setState({
       avatarUrl,
       nickName
+    }, () => {
+      Taro.atMessage({
+        'message': '获取用户信息成功',
+        'type': 'info',
+      })
     })
   }
 
@@ -61,6 +66,7 @@ class Index extends Component {
 
     return (
       <View className={`page page-inline ${prefixCls}`}>
+        <AtMessage />
         <View className="page-header">
           <View className="page-header-description">
             <View className="name"><span>Hello,</span>{nickName}</View>
@@ -75,18 +81,25 @@ class Index extends Component {
           </View>
         </View>
         <View className="page-content">
+          <AtDivider content='我们的安全保证' />
+          <TabsBar
+            data={
+              [
+                { label: '措施安全', src: 'https://salary-assets-front.dingtalent.com/img/201809/DT989Vlgi6Qw73p9t757GR8121r.png' },
+                { label: '数据安全', src: 'https://salary-assets-front.dingtalent.com/img/201809/DT6d7O258l9h3E702oHA1h7680a.png' },
+                { label: '权限安全', src: 'https://salary-assets-front.dingtalent.com/img/201809/DT1S2j98o7y863eV7o02NH5L63i.png' },
+              ]
+            }
+          />
           <Card title='联系我们'
             data={
               [
-                {label:'电话',value:'021-5538 1603'},
-                {label:'地址',value:'上海市虹口区周家嘴路546号江园二楼B201室'},
-                {label:'邮箱',value:'marketing@wowoohr.com'},
+                { label: '电话', value: '021-5538 1603' },
+                { label: '地址', value: '上海市虹口区周家嘴路546号江园二楼B201室' },
+                { label: '邮箱', value: 'marketing@wowoohr.com' },
               ]
             }
           >
-            {/* <CardItem title="电话">021-5538 1603</CardItem>
-            <CardItem title="地址 ">上海市虹口区周家嘴路546号江园二楼B201室</CardItem>
-            <CardItem title="邮箱 ">marketing@wowoohr.com</CardItem> */}
           </Card>
         </View>
         <View className="page-footer">

@@ -2,6 +2,7 @@
 @prefix-cls: ~"page-call";
 
 .@{prefix-cls} {
+  background: #f8f8f8;
   .page-header {
     background: #fff;
     color: #000000;
@@ -25,17 +26,20 @@
       .welcome {
         font-size: 35px;
         color: #494949;
-        span{
+        span {
           padding-right: @margin-md;
         }
       }
     }
   }
-  .page-footer{
+  .page-footer {
     margin-top: @margin-base;
 
-    at-button{
+    at-button {
       margin-bottom: 10px;
     }
+  }
+  .at-divider__content {
+    background: #f8f8f8;
   }
 }
