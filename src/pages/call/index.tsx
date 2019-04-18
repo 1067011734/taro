@@ -7,12 +7,15 @@ import './index.less'
 const prefixCls = 'page-call';
 
 class Index extends Component {
-  state={
+  state = {
     // 用户头像
-    avatarUrl:'',
+    avatarUrl: '',
     // 用户姓名
-    nickName:'-',
+    nickName: '-',
+    // 电话
+    phoneNumber: '10086'
   }
+
 
   /**
    * 指定config的类型声明为: Taro.Config
@@ -25,6 +28,9 @@ class Index extends Component {
     navigationBarTitleText: '我们的家'
   }
 
+  /**
+   *  获取用户信息
+   */
   getUserInfo = (data) => {
     if (!data) {
       return;
@@ -37,6 +43,15 @@ class Index extends Component {
       avatarUrl,
       nickName
     })
+  }
+
+  /**
+   * 打电话
+   */
+  handlePhone = () => {
+    const { phoneNumber } = this.state;
+
+    Taro.makePhoneCall({ phoneNumber })
   }
 
   render() {
@@ -62,6 +77,7 @@ class Index extends Component {
         </View>
         <View className="page-footer">
           <AtButton openType="getUserInfo" onGetUserInfo={this.getUserInfo}>允许获取用户信息</AtButton>
+          <AtButton type='secondary' onClick={this.handlePhone}>马上联系</AtButton>
           <AtButton type='primary' >我要反馈意见</AtButton>
         </View>
       </View>
