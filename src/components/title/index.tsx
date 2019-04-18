@@ -6,8 +6,9 @@ import './index.less';
 const prefixCls = 'wowo-title';
 
 export interface titleProps {
-  // 标题
+  // 子元素
   children: any;
+  // 是否显示动画
   animation: Boolean;
 }
 

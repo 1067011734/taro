@@ -2,9 +2,11 @@ import { ComponentType } from 'react'
 import Taro, { Component, Config } from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import { AtAvatar, AtButton } from 'taro-ui'
+import Card from '@components/Card'
 import './index.less'
 
 const prefixCls = 'page-call';
+const CardItem = Card.Item;
 
 class Index extends Component {
   state = {
@@ -12,10 +14,10 @@ class Index extends Component {
     avatarUrl: '',
     // 用户姓名
     nickName: '-',
-    // 电话
-    phoneNumber: '10086'
   }
 
+  // 电话
+  phoneNumber = '10086';
 
   /**
    * 指定config的类型声明为: Taro.Config
@@ -49,7 +51,7 @@ class Index extends Component {
    * 打电话
    */
   handlePhone = () => {
-    const { phoneNumber } = this.state;
+    const { phoneNumber } = this
 
     Taro.makePhoneCall({ phoneNumber })
   }
@@ -73,7 +75,19 @@ class Index extends Component {
           </View>
         </View>
         <View className="page-content">
-          content
+          <Card title='联系我们'
+            data={
+              [
+                {label:'电话',value:'021-5538 1603'},
+                {label:'地址',value:'上海市虹口区周家嘴路546号江园二楼B201室'},
+                {label:'邮箱',value:'marketing@wowoohr.com'},
+              ]
+            }
+          >
+            {/* <CardItem title="电话">021-5538 1603</CardItem>
+            <CardItem title="地址 ">上海市虹口区周家嘴路546号江园二楼B201室</CardItem>
+            <CardItem title="邮箱 ">marketing@wowoohr.com</CardItem> */}
+          </Card>
         </View>
         <View className="page-footer">
           <AtButton openType="getUserInfo" onGetUserInfo={this.getUserInfo}>允许获取用户信息</AtButton>

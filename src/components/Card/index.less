@@ -1,0 +1,30 @@
+@import '../../style/common.less';
+@prefix-cls: ~'wowo-card';
+
+.@{prefix-cls}{
+  border: 2px solid #dddddd;
+  border-radius: @border-size;
+  padding: @margin-md;
+  &-content{
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  &-item{
+    display: flex;
+    font-size: 35px;
+    color: #494949;
+    &-value{
+      flex: 1;
+      padding-left: 10px;
+    }
+  }
+}
+
+.@{prefix-cls}-animation{
+  animation: bounceInLeft  1s;
+}
+.@{prefix-cls}-item{
+  display: flex;
+  color: #494949;
+  padding-top: 20px;
+}
