@@ -1,11 +1,18 @@
 import { ComponentType } from 'react'
 import Taro, { Component, Config } from '@tarojs/taro'
-import { View, Button, Text } from '@tarojs/components'
-import { AtAvatar } from 'taro-ui'
+import { View } from '@tarojs/components'
+import { AtAvatar, AtButton } from 'taro-ui'
+import './index.less'
 
 const prefixCls = 'page-call';
 
 class Index extends Component {
+  state={
+    // 用户头像
+    avatarUrl:'',
+    // 用户姓名
+    nickName:'-',
+  }
 
   /**
    * 指定config的类型声明为: Taro.Config
@@ -18,25 +25,45 @@ class Index extends Component {
     navigationBarTitleText: '我们的家'
   }
 
+  getUserInfo = (data) => {
+    if (!data) {
+      return;
+    }
+
+    const { userInfo } = data.detail
+    const { avatarUrl, nickName } = userInfo
+
+    this.setState({
+      avatarUrl,
+      nickName
+    })
+  }
+
   render() {
+    const { avatarUrl, nickName } = this.state
+
     return (
       <View className={`page page-inline ${prefixCls}`}>
         <View className="page-header">
           <View className="page-header-description">
-            <View className="name"><span>Hello,</span>小陈</View>
-            <View className="welcome">今晚一起来吃鸡吧！</View>
+            <View className="name"><span>Hello,</span>{nickName}</View>
+            <View className="welcome"><span>👉</span>今晚一起来吃鸡吧！</View>
           </View>
           <View className="page-header-avatar">
             <AtAvatar
               size="large"
               circle
-              image='https://jdc.jd.com/img/200'
+              image={avatarUrl}
             ></AtAvatar>
           </View>
         </View>
         <View className="page-content">
           content
-      </View>
+        </View>
+        <View className="page-footer">
+          <AtButton openType="getUserInfo" onGetUserInfo={this.getUserInfo}>允许获取用户信息</AtButton>
+          <AtButton type='primary' >我要反馈意见</AtButton>
+        </View>
       </View>
     )
   }
