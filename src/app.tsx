@@ -1,7 +1,7 @@
 import Taro, { Component, Config } from '@tarojs/taro'
 import { Provider } from '@tarojs/mobx'
 import Index from './pages/index'
-
+import getUserInfo from '@utils/getUserInfo'
 import counterStore from './store/counter'
 
 import './app.less'

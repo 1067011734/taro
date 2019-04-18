@@ -99,7 +99,7 @@ const config = {
     '@': path.resolve(__dirname, '..', 'src'),
     '@pages': path.resolve(__dirname, '..', 'src/page'),
     '@components': path.resolve(__dirname, '..', 'src/components'),
-    '@/utils': path.resolve(__dirname, '..', 'src/utils'),
+    '@utils': path.resolve(__dirname, '..', 'src/utils'),
   }
 }
 
