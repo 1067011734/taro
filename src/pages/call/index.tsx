@@ -1,23 +1,9 @@
 import { ComponentType } from 'react'
 import Taro, { Component, Config } from '@tarojs/taro'
 import { View, Button, Text } from '@tarojs/components'
-import { observer, inject } from '@tarojs/mobx'
 
-type PageStateProps = {
-  counterStore: {
-    counter: number,
-    increment: Function,
-    decrement: Function,
-    incrementAsync: Function
-  }
-}
+const prefixCls = 'page-call';
 
-interface Index {
-  props: PageStateProps;
-}
-
-@inject('counterStore')
-@observer
 class Index extends Component {
 
   /**
@@ -28,47 +14,21 @@ class Index extends Component {
    * 提示和声明 navigationBarTextStyle: 'black' | 'white' 类型冲突, 需要显示声明类型
    */
   config: Config = {
-    navigationBarTitleText: '我们是谁'
+    navigationBarTitleText: '我们的家'
   }
 
-  componentWillMount () { }
-
-  componentWillReact () {
-    console.log('componentWillReact')
-  }
-
-  componentDidMount () { }
-
-  componentWillUnmount () { }
-
-  componentDidShow () { }
-
-  componentDidHide () { }
-
-  increment = () => {
-    const { counterStore } = this.props
-    counterStore.increment()
-  }
-
-  decrement = () => {
-    const { counterStore } = this.props
-    counterStore.decrement()
-  }
-
-  incrementAsync = () => {
-    const { counterStore } = this.props
-    counterStore.incrementAsync()
-  }
-
-  render () {
-    const { counterStore: { counter } } = this.props
+  render() {
     return (
-      <View className='index'>
-        88888888888888
+      <View className={`page ${prefixCls}`}>
+        <View className="page-header  page-inline">
+          88888888888888
       </View>
-      // <div>2222222</div>
+        <View className="page-content  page-inline">
+          content
+      </View>
+      </View>
     )
   }
 }
 
-export default Index  as ComponentType
+export default Index as ComponentType

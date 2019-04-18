@@ -78,7 +78,7 @@ class Index extends Component {
   render() {
     const { data } = this.state
     return (
-      <View className='page'>
+      <View className='page-inline'>
         <Header />
         <View className="margin--bottom-base">
           <Title animation>如何使用？</Title>

@@ -29,9 +29,9 @@ class App extends Component {
    */
   config: Config = {
     pages: [
+      'pages/call/index',
       'pages/love/index',
       'pages/welcome/index',
-      'pages/call/index',
       'pages/index/index'
     ],
     window: {
