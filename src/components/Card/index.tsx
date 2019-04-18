@@ -29,7 +29,7 @@ export interface titleProps {
 
     return (
       <View className={className}>
-        <View className={`${prefixCls}-title`}>{title}</View>
+        <View className={`${prefixCls}-title`}><span>{title}</span></View>
         <View className={`${prefixCls}-content`}>
           {data.map((x,key)=>(
              <View className={`${prefixCls}-item`} key={key}>
