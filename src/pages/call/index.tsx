@@ -1,6 +1,7 @@
 import { ComponentType } from 'react'
 import Taro, { Component, Config } from '@tarojs/taro'
 import { View, Button, Text } from '@tarojs/components'
+import { AtAvatar } from 'taro-ui'
 
 const prefixCls = 'page-call';
 
@@ -19,11 +20,21 @@ class Index extends Component {
 
   render() {
     return (
-      <View className={`page ${prefixCls}`}>
-        <View className="page-header  page-inline">
-          88888888888888
-      </View>
-        <View className="page-content  page-inline">
+      <View className={`page page-inline ${prefixCls}`}>
+        <View className="page-header">
+          <View className="page-header-description">
+            <View className="name"><span>Hello,</span>小陈</View>
+            <View className="welcome">今晚一起来吃鸡吧！</View>
+          </View>
+          <View className="page-header-avatar">
+            <AtAvatar
+              size="large"
+              circle
+              image='https://jdc.jd.com/img/200'
+            ></AtAvatar>
+          </View>
+        </View>
+        <View className="page-content">
           content
       </View>
       </View>

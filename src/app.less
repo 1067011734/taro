@@ -1,25 +1,26 @@
-@import './style/animate.less';
-.page{
+@import "./style/animate.less";
+@import "./style/common.less";
+.page {
   display: flex;
   flex: 1;
   flex-direction: column;
-  min-width: 100vh;
+  // min-width: 100vh;
   min-height: 100vh;
 }
-.page-header{
+.page-header {
   flex: initial;
   display: flex;
   flex-direction: row;
 }
-.page-content{
+.page-content {
   flex: 1;
   display: flex;
   flex-direction: column;
 }
-.page-inline{
-  padding-left:25px;
-  padding-right:25px;
+.page-inline {
+  padding-left: @margin-base;
+  padding-right: @margin-base;
 }
-.margin--bottom-base{
+.margin--bottom-base {
   margin-bottom: 30px;
 }
