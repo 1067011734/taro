@@ -1,7 +1,7 @@
 import { ComponentType } from 'react'
 import Taro, { Component, Config } from '@tarojs/taro'
 import { View } from '@tarojs/components'
-import { AtForm, AtTextarea, AtButton, AtInput, AtRate } from 'taro-ui'
+import { AtTextarea, AtButton, AtMessage, AtRate } from 'taro-ui'
 import Item from '@components/Item'
 import './index.less'
 
@@ -9,8 +9,8 @@ const prefixCls = 'page-call-feedback';
 
 class Index extends Component {
 
-  state={
-    rate:3
+  state = {
+    rate: 3
   }
 
   /**
@@ -24,8 +24,12 @@ class Index extends Component {
     navigationBarTitleText: '提交反馈'
   }
 
-  handleSubmit = (ev) => {
-    console.log(ev.detail.value, 11111)
+  handleSubmit = () => {
+    Taro.atMessage({
+      'message': '提交成功',
+      'type': 'info',
+    })
+    Taro.navigateBack();
   }
 
   componentWillMount() { }
@@ -50,22 +54,23 @@ class Index extends Component {
     const { rate } = this.state
     return (
       <View className={`page page-inline ${prefixCls}`}>
-        <AtForm
-          onSubmit={this.handleSubmit}
-        >
+      <AtMessage />
+        <View className="page-content">
           <Item title='您的评分'>
-          <AtRate
-            value={rate}
-            key='rate'
-            onChange={(value) => { this.handleChange(value, 'rate') }}
-          />
+            <AtRate
+              value={rate}
+              key='rate'
+              onChange={(value) => { this.handleChange(value, 'rate') }}
+            />
           </Item>
           <AtTextarea
             maxLength={200}
             placeholder='您的建议是...'
           />
-          <AtButton formType='submit' type='primary'>提交</AtButton>
-        </AtForm>
+        </View>
+        <View className="page-footer">
+          <AtButton type='primary' onClick={this.handleSubmit}>确定提交</AtButton>
+        </View>
       </View>
     )
   }

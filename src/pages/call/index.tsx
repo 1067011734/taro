@@ -29,7 +29,13 @@ class Index extends Component {
   config: Config = {
     navigationBarTitleText: '我们的家'
   }
+  componentDidMount() {}
 
+  componentWillUnmount() { }
+
+  componentDidShow() {
+    console.info(this.$router.params)
+  }
   /**
    *  获取用户信息
    */

@@ -28,8 +28,8 @@ class App extends Component {
    */
   config: Config = {
     pages: [
-      'pages/call/feedback/index',
       'pages/call/index',
+      'pages/call/feedback/index',
       'pages/love/index',
       'pages/welcome/index',
       'pages/index/index'
