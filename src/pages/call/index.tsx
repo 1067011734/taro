@@ -61,6 +61,12 @@ class Index extends Component {
     Taro.makePhoneCall({ phoneNumber })
   }
 
+  handleFeedback=()=>{
+    Taro.navigateTo({
+      url: `/pages/call/feedback/index?itemId=6666`
+    })
+  }
+
   render() {
     const { avatarUrl, nickName } = this.state
 
@@ -105,7 +111,7 @@ class Index extends Component {
         <View className="page-footer">
           <AtButton openType="getUserInfo" onGetUserInfo={this.getUserInfo}>允许获取用户信息</AtButton>
           <AtButton type='secondary' onClick={this.handlePhone}>马上联系</AtButton>
-          <AtButton type='primary' >我要反馈意见</AtButton>
+          <AtButton type='primary' onClick={this.handleFeedback}>提交反馈意见</AtButton>
         </View>
       </View>
     )

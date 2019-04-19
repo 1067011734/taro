@@ -1,7 +1,6 @@
 import Taro, { Component, Config } from '@tarojs/taro'
 import { Provider } from '@tarojs/mobx'
 import Index from './pages/index'
-import getUserInfo from '@utils/getUserInfo'
 import counterStore from './store/counter'
 
 import './app.less'
@@ -30,6 +29,7 @@ class App extends Component {
   config: Config = {
     pages: [
       'pages/call/index',
+      'pages/call/feedback/index',
       'pages/love/index',
       'pages/welcome/index',
       'pages/index/index'
