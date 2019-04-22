@@ -60,6 +60,7 @@ class Index extends Component {
             <AtRate
               value={rate}
               key='rate'
+              size={30}
               onChange={(value) => { this.handleChange(value, 'rate') }}
             />
           </Item>

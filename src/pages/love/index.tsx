@@ -2,7 +2,7 @@ import { ComponentType } from 'react'
 import Taro, { Component, Config } from '@tarojs/taro'
 import Title from '@components/Title'
 import { View } from '@tarojs/components'
-import { AtTimeline, AtGrid } from 'taro-ui'
+import { AtTimeline, AtGrid, AtFloatLayout, AtToast } from 'taro-ui'
 import Header from './_components/Header'
 
 type PageStateProps = {
@@ -25,12 +25,14 @@ class Index extends Component {
       {
         image:
           'https://img12.360buyimg.com/jdphoto/s72x72_jfs/t6160/14/2008729947/2754/7d512a86/595c3aeeNa89ddf71.png',
-        value: '智能社保'
+        value: '智能社保',
+        content: '“智能社保”主攻透明化、效率化的社保管理服务，“随时随地管社保”在节省沟通成本、控制企业不必要支出方面提供了高性价比的选择，致力于帮助中国企业快速提高人事薪酬福利和社保管理能效。'
       },
       {
         image:
           'https://img20.360buyimg.com/jdphoto/s72x72_jfs/t15151/308/1012305375/2300/536ee6ef/5a411466N040a074b.png',
-        value: '智能薪酬'
+        value: '智能薪酬',
+        content: '智能薪酬”覆盖个税申报、薪酬报表、社保计算、薪酬档案、薪酬计算、工资条六大场景，并嵌入贴合2019年个税改革的个人所得税专项扣除功能。'
       },
       {
         image:
@@ -47,7 +49,13 @@ class Index extends Component {
           'https://img14.360buyimg.com/jdphoto/s72x72_jfs/t17251/336/1311038817/3177/72595a07/5ac44618Na1db7b09.png',
         value: '背景调查'
       }
-    ]
+    ],
+    layout: {
+      isOpened: false,
+      title: '',
+      content: ''
+    },
+    isOpenedTotal: false
   }
 
   /**
@@ -75,10 +83,57 @@ class Index extends Component {
 
   componentDidHide() { }
 
+  /**
+   * 显示/隐藏轻提示
+   * @param bool false:隐藏；true:显示
+   */
+  toggleTotal = (bool) => {
+    this.setState({ isOpenedTotal: bool })
+  }
+
+  /**
+   * 点击产品，显示产品详情
+   * @param item 点击的产品数据
+   */
+  handleAtGridClick = (item) => {
+    const { layout } = this.state;
+    const { value, content } = item;
+
+    if (!content) {
+      this.toggleTotal(true)
+      return
+    }
+
+    this.setState({
+      layout: {
+        ...layout,
+        title: value,
+        isOpened: true,
+        content
+      }
+    })
+  }
+
+  /**
+   * 隐藏产品详情
+   */
+  handleLayoutClose = () => {
+    const { layout } = this.state;
+
+    this.setState({
+      layout: {
+        ...layout,
+        isOpened: false,
+      }
+    })
+  }
+
   render() {
-    const { data } = this.state
+    const { data, layout, isOpenedTotal } = this.state
+
     return (
       <View className='page-inline'>
+        <AtToast isOpened={isOpenedTotal} text="暂无数据" duration={1000} onClose={() => { this.toggleTotal(false) }}></AtToast>
         <Header />
         <View className="margin--bottom-base">
           <Title animation>如何使用？</Title>
@@ -98,7 +153,11 @@ class Index extends Component {
         <AtGrid
           mode='rect'
           data={data}
+          onClick={this.handleAtGridClick}
         />
+        <AtFloatLayout isOpened={layout.isOpened} title={layout.title} onClose={this.handleLayoutClose}>
+          {layout.content}
+        </AtFloatLayout>
       </View>
     )
   }
