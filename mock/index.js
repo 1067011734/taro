@@ -1,20 +1,19 @@
 // eslint-disable-next-line import/no-commonjs
-var Koa = require('koa');
+const Koa = require('koa');
 // eslint-disable-next-line import/no-commonjs
-var Router = require('koa-router');
+const Router = require('koa-router');
+// eslint-disable-next-line import/no-commonjs
+const requestConfig = require('./request')
 
-var app = new Koa();
-var router = new Router();
+const app = new Koa();
+const router = new Router();
+const origin = '/mock/'
 
-router.post('/mock/getName', (ctx, next) => {
-  ctx.body={
-    status:0,
-    result:{
-      name:'张三',
-      age:'41'
-    }
-  }
-});
+requestConfig.map((item)=>{
+  router[item.type || 'post'](`${origin}${item.url}`, (ctx) => {
+    ctx.body=item.data || {}
+  });
+})
 
 app
   .use(router.routes())
