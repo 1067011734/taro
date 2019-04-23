@@ -28,10 +28,10 @@ class App extends Component {
    */
   config: Config = {
     pages: [
-      'pages/call/index',
-      'pages/call/feedback/index',
-      'pages/love/index',
-      'pages/welcome/index',
+      'pages/Call/index',
+      'pages/Call/feedback/index',
+      'pages/Love/index',
+      'pages/Welcome/index',
       'pages/index/index'
     ],
     window: {
@@ -47,19 +47,19 @@ class App extends Component {
       borderStyle: 'black',
       list: [
         {
-          pagePath: "pages/welcome/index",
+          pagePath: "pages/Welcome/index",
           iconPath: "./images/tabbar/welcome.png",
           selectedIconPath: "./images/tabbar/welcome-active.png",
           text: "介绍"
         },
         {
-          pagePath: "pages/love/index",
+          pagePath: "pages/Love/index",
           iconPath: "./images/tabbar/love.png",
           selectedIconPath: "./images/tabbar/love-active.png",
           text: "心动了"
         },
         {
-          pagePath: "pages/call/index",
+          pagePath: "pages/Call/index",
           iconPath: "./images/tabbar/call.png",
           selectedIconPath: "./images/tabbar/call-active.png",
           text: "联系我们"
