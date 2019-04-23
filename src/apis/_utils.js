@@ -1,15 +1,5 @@
 import Taro from '@tarojs/taro'
-
-const getHost = () => {
-  let hostname = '';
-  if (process.env.NODE_ENV === 'development') {
-    hostname = 'http://localhost:8010';
-  }
-  if (process.env.NODE_ENV === 'production') {
-    hostname = 'https://www.baidu.com';
-  }
-  return hostname;
-};
+import { hostname, isBuild } from '@utils/global'
 
 export const wrapRequest = (url = '', config) => {
   return (data = {}, params = {}) => {
@@ -24,9 +14,9 @@ export const request = (data, params, url, config) => {
     ...config,
   };
 
-  const origin = base.mock ? 'mock' : 'apis';
+  const origin = base.mock && !isBuild ? 'mock' : 'apis';
 
-  const baseUrl = `${getHost()}/${origin}/${url}`;
+  const baseUrl = `${hostname}/${origin}/${url}`;
 
   params = { ...base, ...params };
 
