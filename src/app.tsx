@@ -29,7 +29,7 @@ class App extends Component {
   config: Config = {
     pages: [
       'pages/Call/index',
-      'pages/Call/feedback/index',
+      'pages/Call/Feedback/index',
       'pages/Love/index',
       'pages/Welcome/index',
       'pages/index/index'

@@ -69,7 +69,7 @@ class Index extends Component {
 
   handleFeedback=()=>{
     Taro.navigateTo({
-      url: `/pages/call/feedback/index?itemId=6666`
+      url: `/pages/Call/Feedback/index?itemId=6666777`
     })
   }
 
