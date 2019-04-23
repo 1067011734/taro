@@ -3,7 +3,7 @@ import Taro from '@tarojs/taro'
 const getHost = () => {
   let hostname = '';
   if (process.env.NODE_ENV === 'development') {
-    hostname = 'http://localhost:8880';
+    hostname = 'http://localhost:8010';
   }
   if (process.env.NODE_ENV === 'production') {
     hostname = 'https://www.baidu.com';

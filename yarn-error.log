@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/Cellar/yarn/1.10.1/libexec/bin/yarn.js add @utils/getUserInfo --silent --no-progress
+  /usr/local/bin/node /usr/local/Cellar/yarn/1.10.1/libexec/bin/yarn.js add mock.js --silent --no-progress
 
 PATH: 
   /usr/local/lib/node_modules/npm/node_modules/npm-lifecycle/node-gyp-bin:/Users/chen/Documents/myplace/taro/node_modules/.bin:/Users/chen/Documents/myplace/taro/node_modules/.bin:/Users/chen/.config/yarn/link/node_modules/.bin:/Users/chen/Documents/myplace/taro/node_modules/.bin:/Users/chen/.config/yarn/link/node_modules/.bin:/usr/local/libexec/lib/node_modules/npm/bin/node-gyp-bin:/usr/local/lib/node_modules/npm/bin/node-gyp-bin:/usr/local/bin/node_modules/npm/bin/node-gyp-bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
@@ -14,17 +14,7 @@ Platform:
   darwin x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/@utils%2fgetUserInfo: Not found
-      at Request.params.callback [as _callback] (/usr/local/Cellar/yarn/1.10.1/libexec/lib/cli.js:61073:18)
-      at Request.self.callback (/usr/local/Cellar/yarn/1.10.1/libexec/lib/cli.js:120166:22)
-      at Request.emit (events.js:182:13)
-      at Request.<anonymous> (/usr/local/Cellar/yarn/1.10.1/libexec/lib/cli.js:121138:10)
-      at Request.emit (events.js:182:13)
-      at IncomingMessage.<anonymous> (/usr/local/Cellar/yarn/1.10.1/libexec/lib/cli.js:121060:12)
-      at Object.onceWrapper (events.js:273:13)
-      at IncomingMessage.emit (events.js:187:15)
-      at endReadableNT (_stream_readable.js:1092:12)
-      at process._tickCallback (internal/process/next_tick.js:63:19)
+  Error: ENOENT: no such file or directory, copyfile '/Users/chen/Library/Caches/Yarn/v2/npm-mock.js-0.2.0-c0d6ee5e58c7b6902c3030462c1eff3bd33f8bdd/example/qunit.htm' -> '/Users/chen/Documents/myplace/taro/node_modules/mock.js/example/qunit.htm'
 
 npm manifest: 
   {
@@ -5695,6 +5685,11 @@ Lockfile:
     version "4.8.0"
     resolved "https://registry.yarnpkg.com/mobx/-/mobx-4.8.0.tgz#6059feb9e0d3440acca5ae192daad63198b1180f"
     integrity sha512-uR6FnrK50UEbV+zTXkOI+R0pAMb7xA5mkAWnKTMBcN6hAh57qAa9r0XMvsiPgpb8dS3Kw1x0sNhrrUNUcM+Pug==
+  
+  mock.js@^0.2.0:
+    version "0.2.0"
+    resolved "https://registry.yarnpkg.com/mock.js/-/mock.js-0.2.0.tgz#c0d6ee5e58c7b6902c3030462c1eff3bd33f8bdd"
+    integrity sha1-wNbuXljHtpAsMDBGLB7/O9M/i90=
   
   moment@2.x.x, moment@^2.10.6:
     version "2.24.0"

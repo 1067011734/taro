@@ -2,6 +2,7 @@ import { ComponentType } from 'react'
 import Taro, { Component, Config } from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import { AtAvatar, AtButton, AtMessage, AtDivider } from 'taro-ui'
+import {getUserData} from '@apis/user'
 import Card from '@components/Card'
 import TabsBar from '@components/TabsBar'
 import './index.less'
@@ -29,7 +30,11 @@ class Index extends Component {
   config: Config = {
     navigationBarTitleText: '我们的家'
   }
-  componentDidMount() {}
+  componentDidMount() {
+    getUserData({id:444}).then(data=>{
+      console.info(data)
+    })
+  }
 
   componentWillUnmount() { }
 
