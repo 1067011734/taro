@@ -20,9 +20,13 @@ export const request = (data, params, url, config) => {
 
   params = { ...base, ...params };
 
-  const { method } = params;
+  const { method, loading } = params;
 
   return new Promise((resolve, reject) => {
+    if (loading) {
+      Taro.showLoading({ title: '加载中...', mask: true })
+    }
+
     Taro.request({
       method: method,
       // 客户端发送服务端的数据格式为json
@@ -33,6 +37,11 @@ export const request = (data, params, url, config) => {
       .then((response) => {
         // eslint-disable-next-line no-shadow
         const { data } = response;
+
+        if (loading) {
+          Taro.hideLoading()
+        }
+
         if (!data) {
           // errorMsg('服务器未响应数据');
           // return;
@@ -44,8 +53,11 @@ export const request = (data, params, url, config) => {
         resolve(data);
       })
       .catch(error => {
+        if (loading) {
+          Taro.hideLoading()
+        }
         // console.info(error);
         reject(error);
-      });
-  });
+      })
+  })
 };
